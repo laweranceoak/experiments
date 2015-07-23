@@ -1,0 +1,133 @@
+/* --------------------------
+  Base
+--------------------------- */
+
+body {
+  padding-top: 60px;
+	background: #0f4e7a;
+}
+
+svg {
+	margin: auto;
+  display: block;
+	width: 28%;
+}
+
+/* --------------------------
+  Keyframes
+--------------------------- */
+
+/* Animate Stars sliding up */
+@keyframes moveUp {
+  0% {
+    transform: translateY(300px);
+  }
+  
+  20% {
+    transform: translateY(-10px);
+  }
+  
+  40% {
+    transform: translateY(0);
+  }
+  
+  60% {
+    transform: translateY(5px);
+  }
+  
+  80% {
+    transform: translateY(0);
+  }
+  
+  
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animate Stars Rotating */
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  
+  50% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+@keyframes rotatingNeg {
+  0% {
+    transform: rotate(0);
+  }
+  
+  50% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+}
+
+/* Animate Stars Color Change */
+@keyframes colorChange {
+  0% {
+  }
+  50% {
+    fill: yellow;
+  }
+}
+
+/* Animate Stroke Draw */
+@keyframes strokeDraw {
+  0% {
+    stroke-opacity: 0;
+  }
+  50% {
+    stroke-opacity: .5;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0;
+  }  
+}
+
+
+
+/* --------------------------
+  SVG Styles
+--------------------------- */
+
+.stars-bg {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  
+  animation: strokeDraw 1s ease-out 2.5s;
+}
+
+.star {
+  transform-origin: 50% 50%;
+}
+
+/* Second Star*/
+.star:nth-of-type(1) {
+  animation: 
+    moveUp .5s ease-out .2s backwards,
+    rotatingNeg .5s ease-out 2.2s,
+    colorChange .5s ease-out 2.2s;
+}
+
+/* First Star */
+.star:nth-of-type(2) {
+  animation: 
+    moveUp .5s ease-out backwards,
+    rotatingNeg .5s ease-out 2s,
+    colorChange .5s ease-out 2s;
+}
+
+/* Third Star */
+.star:nth-of-type(3) {
+  animation:
+    moveUp .5s ease-out .4s backwards,
+    rotatingNeg .5s ease-out 2.4s,
+    colorChange .5s ease-out 2.4s;
+}
+
